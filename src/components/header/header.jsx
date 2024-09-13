@@ -62,7 +62,8 @@ function Header({ type }) {
 
   return (
     <div className="header">
-      <div className="headerContainer">
+      <div className={type === "list"?  "headerContainer listMode" : "headerContainer"}>
+
         <div className="headerList">
           <div className="headerListItem">
             <FontAwesomeIcon icon={faBed} />
