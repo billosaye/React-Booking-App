@@ -44,7 +44,7 @@ const Footer = () => {
           <li className="fListItem">Terms & conditions</li>
         </ul>
       </div>
-      <div className="fText">Copyright © 2022 BILBRA BOOKING.</div>
+      <div className="fText">Copyright © {new Date().getFullYear()} BILBRA BOOKING.</div> 
     </div>
   );
 };

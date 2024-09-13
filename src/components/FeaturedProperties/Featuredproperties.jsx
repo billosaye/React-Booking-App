@@ -1,8 +1,5 @@
 import "./Featuredproperties.css";
 
-
-import React from 'react'
-
 export const Featuredproperties = () => {
   return (
     <div className="fp">
@@ -14,7 +11,7 @@ export const Featuredproperties = () => {
         />
         <span className="fpName">Akasha Beach Hotel</span>
         <span className="fpCity">Limenas</span>
-        <span className="fpPrice">Starting from $120</span>
+        <span className="fpPrice">Starting from $120</span> 
         <div className="fpRating">
           <button>8.8</button>
           <span>Excellent</span>
@@ -63,8 +60,5 @@ export const Featuredproperties = () => {
         </div>
       </div>
     </div>
-  )
-}
-
-
-
+  );
+};

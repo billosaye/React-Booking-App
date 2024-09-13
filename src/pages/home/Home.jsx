@@ -15,7 +15,7 @@ function Home() {
         <Featured />
         <h1 className="homeTitle">Browse by Property Type</h1>
         <Propertylist />
-        <h1 className="homeTitle">Home Guest Love</h1> 
+        <h1 className="homeTitle">Home Guest Love</h1>
         <Featuredproperties />
         <MailList />
         <Footer />
