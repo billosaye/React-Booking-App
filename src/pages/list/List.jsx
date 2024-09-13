@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../../components/header/header";
+import MainHeader from "../../components/header/MainHeader";
 import Navbar from "../../components/navbar/Navbar";
 
 function List() {
   return (
     <div>
       <Navbar />
-      <Header  type="list" />
+      <MainHeader  type="list" />
     </div>
   );
 }
