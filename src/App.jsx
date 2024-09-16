@@ -6,6 +6,7 @@ import List from './pages/list/list';
 import Hotel from './pages/hotel/hotel';
 
 
+
 function App() {
   return (
     <BrowserRouter> {/*This component uses the `BrowserRouter` from `react-router-dom` to enable client-side routing.*/}
