@@ -5,19 +5,19 @@ export const Featured = () => {
     <div className="featured">
       <div className="featuredItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/hotel/square600/276417560.webp?k=420289e233e82f97f10a55c5b37aa4a56ffdb4c9255d85523b94a871856d0632&o="
+          src="https://ik.imgkit.net/3vlqs5axxjf/external/http://media.iceportal.com/109055/photos/64237910_XL.jpg?tr=w-1200%2Cfo-auto"
           alt=""
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Moscow</h1> 
+          <h1>Moscow</h1>
           <h2>40 properties </h2>
         </div>
       </div>
 
       <div className="featuredItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/hotel/square600/569668424.webp?k=41855654ab2f4eabb4b282af8069bc47c1154179c16744e53d16ace73dd7b5c4&o="
+          src="https://content.r9cdn.net/rimg/himg/89/6f/79/ice-143159-72195202_3XL-132345.jpg"
           alt=""
           className="featuredImg"
         />
@@ -29,7 +29,7 @@ export const Featured = () => {
 
       <div className="featuredItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/hotel/square600/371753409.webp?k=1c6d41330db3ca72acb9733950cb8aeea0bffd50dee51a9899d5d67e1e982425&o="
+          src="https://www.findmombasahotels.com/wp-content/uploads/2009/07/Leopard-Beach-Resort-Spa-Mombasa.jpg"
           alt=""
           className="featuredImg"
         />

@@ -11,17 +11,11 @@ import { SearchItem } from  "../../components/searchItem/SearchItem";
 
 
 function List() {
-  const { state = {} } = useLocation();
-  const [destination, setDestination] = useState(state.destination || "");
-  const [date, setDate] = useState(
-    state.date || [
-      { startDate: new Date(), endDate: new Date(), key: "selection" },
-    ]
-  );
-  const [options, setOptions] = useState(
-    state.options || { adult: 1, children: 0, rooms: 1 }
-  );
+  const location = useLocation();
+  const [destination, setDestination] = useState(location.state.destination);
+  const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
+  const [options, setOptions] = useState(location.state.options);
 
   return (
     <div>
@@ -76,7 +70,7 @@ function List() {
                   <span className="lsOptionText">Adults</span>
                   <input
                     type="number"
-                    min={1}
+                    min={1} // Minimum value for the input field
                     className="lsOptionInput"
                     placeholder={options.adult}
                   />

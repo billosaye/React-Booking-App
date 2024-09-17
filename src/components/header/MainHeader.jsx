@@ -1,11 +1,4 @@
-import "./header.css";
-import { useNavigate } from 'react-router-dom';
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
-import { DateRange } from "react-date-range";
-import { useState } from "react";
-import { format } from "date-fns";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// Importing necessary libraries and components
 import {
   faBed,
   faCalendarDays,
@@ -14,63 +7,74 @@ import {
   faPlane,
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./header.css";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { format } from "date-fns";
+import { useState } from "react";
+import { DateRange } from "react-date-range";
+import { useNavigate } from "react-router-dom"; // imports useNavigate hook from react-router-dom for client-side routing
 
-// HeaderSearchItem Component
-const HeaderSearchItem = ({ icon, value, onClick, children }) => (
-  <div className="headerSearchItem">
-    <FontAwesomeIcon icon={icon} className="headerIcon" />
-    <span onClick={onClick} className="headerSearchText">
-      {value}
-    </span>
-    {children}
-  </div>
-);
+// HEADER COMPONENT
+const Header = ({ type }) => {
+  const navigate = useNavigate(); // navigate hook for client-side routing
 
-// MainHeader Function Component
-function MainHeader({ type }) {
-  const navigate = useNavigate();
-
-  // Initialize states
+  //STATES
+  const [destination, setDestination] = useState("");
+  // This state is initialized to false, indicating the date picker is initially closed
+  const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
+    //This state from the Date Range Liblary. It Initializes a state for date range selection with a default start and end date
     {
       startDate: new Date(),
       endDate: new Date(),
       key: "selection",
     },
   ]);
-  const [openDatePicker, setOpenDatePicker] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
-  const [destination, setDestination] = useState("");
   const [options, setOptions] = useState({
+    /* This state is for storing the number of adults, children, and rooms for the search */
     adult: 1,
     children: 0,
-    rooms: 1,
+    room: 1,
   });
 
-  // Define 'handleOption' function to update 'options' state
+  // EVENT HANDLERS
   const handleOption = (name, operation) => {
-    setOptions((prev) => ({
-      ...prev,
-      [name]: operation === "i" ? prev[name] + 1 : Math.max(prev[name] - 1, 0),
-    }));
+    setOptions((prev) => {
+      return {
+        ...prev,
+        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+      };
+    });
   };
 
-  // Define 'handleSearch' function
-  const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } });
+const handleSearch = () => { 
+  // Navigate to the /hotels route, passing the destination, date, and options as state 
+  navigate("/hotels", { state: { destination, date, options } }); 
+};
+
+  const handleInput = (e) => {
+    setDestination(e.target.value);
   };
 
+  // RENDERING COMPONENTS
   return (
     <div className="header">
-      <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
+      <div // Applies additional 'listMode' class to headerContainer when type prop is "list"
+        className={
+          type === "list" ? "headerContainer listMode" : "headerContainer"
+        }
+      >
         <div className="headerList">
-          <div className="headerListItem">
+          <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
+            <span>Accommodations</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
+            <span>Car Hire</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faCar} />
@@ -78,68 +82,91 @@ function MainHeader({ type }) {
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
+            <span>Tours</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
+            <span>Airport Cabs</span>
           </div>
         </div>
-
         {type !== "list" && (
           <>
-            <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
+            <h1 className="headerTitle">
+              Experience the World, One Booking at a Time.
+            </h1>
             <p className="headerDesc">
-              Discover the secret to affordable travel - BilBra's got you covered
+              Get rewarded for your travels – unlock instant savings of 10% or
+              more with a free OsayeBookings account
             </p>
             <button className="headerBtn">Sign in / Register</button>
 
             <div className="headerSearch">
-              <HeaderSearchItem
-                icon={faBed}
-                value={<input
+              <div className="headerSearchItem">
+                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                <input
                   type="text"
-                  placeholder="Where are you going?"
+                  placeholder="Enter City"
                   className="headerSearchInput"
-                  onChange={(e) => setDestination(e.target.value)}
-                />}
-              />
-              
-              <HeaderSearchItem
-                icon={faCalendarDays}
-                value={`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
-                onClick={() => setOpenDatePicker(!openDatePicker)}
-              >
-                {openDatePicker && (
+                  onChange={handleInput}
+                />
+              </div>
+
+              <div className="headerSearchItem">
+                <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
+                <span
+                  onClick={() => setOpenDate(!openDate)}
+                  className="headerSearchText"
+                >
+                  {`
+  ${format(date[0].startDate, "MM/dd/yyyy")} 
+  ${
+    date[0].startDate.toLocaleDateString() ===
+    date[0].endDate.toLocaleDateString()
+      ? ""
+      : " to "
+  } 
+  ${format(date[0].endDate, "MM/dd/yyyy")}
+`}
+                </span>
+
+                {openDate && (
+                  //This is from the date range from the react liblary
                   <DateRange
                     editableDateInputs={true}
                     onChange={(item) => setDate([item.selection])}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
-                    minDate={new Date()}
                     className="date"
+                    minDate={new Date()} // Sets the minimum date to today's date, ensuring users can't select dates in the past
                   />
                 )}
-              </HeaderSearchItem>
-              
-              <HeaderSearchItem
-                icon={faPerson}
-                value={`${options.adult} adult. ${options.children} children. ${options.rooms} rooms`}
-                onClick={() => setOpenOptions(!openOptions)}
-              >
+              </div>
+
+              <div className="headerSearchItem">
+                <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+                <span
+                  onClick={() => setOpenOptions(!openOptions)} //Toggle openOptions state when clicked
+                  className="headerSearchText"
+                >
+                  {/* Displays the number of adults, children, and rooms selected */}
+                  {`${options.adult} Adult · ${options.children} Children · ${options.room} Room`}
+                </span>
+                {/* Displays the number of adults, children, and rooms selected */}
                 {openOptions && (
                   <div className="options">
                     <div className="optionItem">
-                      <span className="optionText">Adults</span>
-                      <div className="optionsCounter">
+                      <span className="optionText">Adult</span>
+                      <div className="optionCounter">
                         <button
-                          disabled={options.adult <= 1}
+                          disabled={options.adult <= 1} // Disable the button when there is one or less adult selected
                           className="optionCounterButton"
                           onClick={() => handleOption("adult", "d")}
                         >
                           -
                         </button>
-                        <span className="optionCounterNumber">{options.adult}</span>
+                        <span className="optionCounterNumber">
+                          {options.adult}
+                        </span>
                         <button
                           className="optionCounterButton"
                           onClick={() => handleOption("adult", "i")}
@@ -151,7 +178,7 @@ function MainHeader({ type }) {
 
                     <div className="optionItem">
                       <span className="optionText">Children</span>
-                      <div className="optionsCounter">
+                      <div className="optionCounter">
                         <button
                           disabled={options.children <= 0}
                           className="optionCounterButton"
@@ -159,7 +186,9 @@ function MainHeader({ type }) {
                         >
                           -
                         </button>
-                        <span className="optionCounterNumber">{options.children}</span>
+                        <span className="optionCounterNumber">
+                          {options.children}
+                        </span>
                         <button
                           className="optionCounterButton"
                           onClick={() => handleOption("children", "i")}
@@ -168,21 +197,22 @@ function MainHeader({ type }) {
                         </button>
                       </div>
                     </div>
-
                     <div className="optionItem">
-                      <span className="optionText">Rooms</span>
-                      <div className="optionsCounter">
+                      <span className="optionText">Room</span>
+                      <div className="optionCounter">
                         <button
-                          disabled={options.rooms <= 1}
+                          disabled={options.room <= 1}
                           className="optionCounterButton"
-                          onClick={() => handleOption("rooms", "d")}
+                          onClick={() => handleOption("room", "d")}
                         >
                           -
                         </button>
-                        <span className="optionCounterNumber">{options.rooms}</span>
+                        <span className="optionCounterNumber">
+                          {options.room}
+                        </span>
                         <button
                           className="optionCounterButton"
-                          onClick={() => handleOption("rooms", "i")}
+                          onClick={() => handleOption("room", "i")}
                         >
                           +
                         </button>
@@ -190,15 +220,20 @@ function MainHeader({ type }) {
                     </div>
                   </div>
                 )}
-              </HeaderSearchItem>
+              </div>
 
-              <button className="headerBtn" onClick={handleSearch}>Search</button>
+              <div className="headerSearchItem">
+                <button className="headerBtn" onClick={handleSearch}>
+                  Search
+                </button>
+              </div>
             </div>
           </>
         )}
       </div>
     </div>
   );
-}
+};
 
-export default MainHeader;
+// Exporting the Header component
+export default Header;

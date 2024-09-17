@@ -45,7 +45,7 @@ const Hotel = () => {
     setSlideNumber(i);
     setOpen(true);
   };
-
+ 
   const handleMove = (direction) => {
     let newSlideNumber;
 

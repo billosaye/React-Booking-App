@@ -1,19 +1,18 @@
-import "./Navbar.css"
+import "./Navbar.css";
 const Navbar = () => {
   return (
     <div className="navbar">
-        
       <div className="navContainer">
-        <span className="logo"><h1>BILBRA BOOKING</h1></span>
+        <span className="logo">
+          <h1>OSAYEBOOKINGS</h1>
+        </span>
         <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+          <button className="navButton">Register</button>
+          <button className="navButton">Login</button>
         </div>
-
       </div>
-        
-        </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;

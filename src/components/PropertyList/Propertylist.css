@@ -1,30 +1,58 @@
-.pList{
-    width: 100%;
-    max-width: 1024px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+.pList {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.pListItem {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pListImg {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.pListTitles > h1 {
+  font-size: 18px;
+  color: #444;
+}
+
+.pListTitles > h2 {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* Media queries for responsiveness */
+
+/* For screens smaller than 768px (e.g. tablets and mobile devices) */
+@media (max-width: 768px) {
+  .pList {
+    flex-wrap: wrap;
   }
-  
-  .pListItem{
-    flex:1;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
+  .pListItem {
+    width: 50%; /* Make each item take up half the width */
   }
-  
-  .pListImg{
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+  .pListImg {
+    height: 100px; /* Reduce image height for smaller screens */
   }
-  
-  .pListTitles>h1{
-    font-size: 18px;
-    color: #444; 
+}
+
+/* For screens smaller than 480px (e.g. smaller mobile devices) */
+@media (max-width: 480px) {
+  .pList {
+    flex-direction: column; /* Stack items vertically */
   }
-  
-  .pListTitles>h2{
-    font-size: 14px;
-    font-weight: 300;
+  .pListItem {
+    width: 100%; /* Make each item take up full width */
   }
+  .pListImg {
+    height: 80px; /* Reduce image height even further */
+  }
+}

@@ -8,7 +8,7 @@ export const Featuredproperties = () => {
           src="https://i.pinimg.com/564x/17/ca/06/17ca06c108252e23ed8f230c894fe736.jpg"
           alt="Akasha Beach Hotel"
           className="fpImg"
-        />
+        /> 
         <span className="fpName">Akasha Beach Hotel</span>
         <span className="fpCity">Limenas</span>
         <span className="fpPrice">Starting from $120</span> 
