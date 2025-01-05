@@ -36,9 +36,10 @@
   background-color: #003580;
   color: white;
   border: none;
-  padding: 3px;
+  padding: 5px 10px;
   margin-right: 10px;
   font-weight: bold;
+  border-radius: 5px;
 }
 
 .fpRating > span {
@@ -47,28 +48,43 @@
 
 /* Media queries for responsiveness */
 
-/* For screens smaller than 768px (e.g. tablets and mobile devices) */
-@media (max-width: 768px) {
+/* For medium-sized screens smaller than 1024px */
+@media (max-width: 1024px) {
   .fp {
-    flex-wrap: wrap;
+    gap: 15px;
   }
   .fpItem {
-    width: 50%; /* Make each item take up half the width */
-  }
-  .fpImg {
-    height: 200px; /* Reduce image height for smaller screens */
+    margin-bottom: 20px;
   }
 }
 
-/* For screens smaller than 480px (e.g. smaller mobile devices) */
+/* For screens smaller than 768px (e.g., tablets and small laptops) */
+@media (max-width: 768px) {
+  .fp {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .fpItem {
+    flex: 1 1 45%; /* Each item takes approximately 45% of the width */
+  }
+  .fpImg {
+    height: 220px; /* Slightly reduce image height */
+  }
+}
+
+/* For smaller mobile devices */
 @media (max-width: 480px) {
   .fp {
     flex-direction: column; /* Stack items vertically */
+    gap: 10px;
   }
   .fpItem {
     width: 100%; /* Make each item take up full width */
   }
   .fpImg {
-    height: 150px; /* Reduce image height even further */
+    height: 150px; /* Reduce image height */
+  }
+  .fpRating > button {
+    padding: 4px 8px; /* Adjust button size for smaller screens */
   }
 }

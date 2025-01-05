@@ -1,30 +1,103 @@
-.mail{
-    width: 100%;
-    margin-top: 50px;
-    background-color: #000000;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 50px;
+.mail {
+  width: 100%;
+  margin-top: 50px;
+  background-color: #FF385C;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 50px;
+}
+
+.mailTitle {
+  font-size: 24px;
+}
+
+.mailDesc {
+  font-size: 16px;
+  text-align: center;
+}
+
+.mailInputContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.mailInputContainer > input {
+  width: 300px;
+  height: 30px;
+  padding: 10px;
+  border: none;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.mailInputContainer > button {
+  height: 50px;
+  background-color: #f6f6f6;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsive Adjustments */
+
+/* Tablet view (max-width: 768px) */
+@media (max-width: 768px) {
+  .mail {
+    padding: 30px;
   }
-  
-  .mailInputContainer>input{
-    width: 300px;
-    height: 30px;
-    padding: 10px;
-    border: none;
-    margin-right: 10px;
-    border-radius: 5px;
+
+  .mailTitle {
+    font-size: 22px;
   }
-  
-  .mailInputContainer>button{
-    height: 50px;
-    background-color: #3984ff;
-    color: white;
-    font-weight: 500;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+  .mailDesc {
+    font-size: 14px;
   }
+
+  .mailInputContainer {
+    flex-direction: column; /* Stack input and button vertically */
+    gap: 10px;
+  }
+
+  .mailInputContainer > input {
+    width: 250px; /* Reduce input width for smaller screens */
+    height: 40px;
+  }
+
+  .mailInputContainer > button {
+    width: 250px;
+    height: 45px;
+  }
+}
+
+/* Mobile view (max-width: 480px) */
+@media (max-width: 480px) {
+  .mail {
+    padding: 20px;
+  }
+
+  .mailTitle {
+    font-size: 20px;
+  }
+
+  .mailDesc {
+    font-size: 12px;
+  }
+
+  .mailInputContainer > input {
+    width: 200px; /* Further reduce input width */
+    height: 35px;
+  }
+
+  .mailInputContainer > button {
+    width: 200px;
+    height: 40px;
+  }
+}

@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   gap: 20px;
   z-index: 1;
+  margin: 0 auto; /* Center the container */
 }
 
 .featuredItem {
@@ -14,7 +15,12 @@
   border-radius: 10px;
   overflow: hidden;
   height: 250px;
-  box-sizing: border-box; /* Ensures padding and border are included in the total width and height */
+  box-sizing: border-box;
+  transition: transform 0.3s; /* Add a hover effect */
+}
+
+.featuredItem:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .featuredImg {
@@ -27,6 +33,7 @@
   position: absolute;
   bottom: 20px;
   left: 20px;
+  z-index: 2; /* Ensure text is above the image */
 }
 
 /* Responsive styles */
@@ -39,5 +46,15 @@
 @media (max-width: 600px) {
   .featuredItem {
     flex: 1 1 100%; /* One item per row on small screens */
+    height: 200px; /* Adjust height for smaller screens */
+  }
+}
+
+/* Additional media query for very small screens */
+@media (max-width: 400px) {
+  .featuredTitles {
+    font-size: 14px; /* Smaller titles for small screens */
+    bottom: 10px; /* Adjust positioning */
+    left: 10px;
   }
 }

@@ -4,7 +4,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navContainer">
         <span className="logo">
-          <h1>OSAYEBOOKINGS</h1>
+          <h1>JamnaBookings</h1>
         </span>
         <div className="navItems">
           <button className="navButton">Register</button>
@@ -15,4 +15,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar; 

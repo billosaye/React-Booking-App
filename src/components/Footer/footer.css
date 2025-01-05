@@ -1,23 +1,69 @@
-.footer{
-    width: 100%;
-    width: 1024px;
-    font-size: 12px;
+.footer {
+  width: 100%;
+  max-width: 1024px; /* Changed from fixed width to max-width */
+  margin: 0 auto;
+  font-size: 12px;
+  padding: 20px 0;
+}
+
+.fLists {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.fList {
+  list-style: none;
+  padding: 0;
+}
+
+.fListItem {
+  margin-bottom: 10px;
+  color: #003580;
+  cursor: pointer;
+}
+
+/* Media Queries */
+
+/* For screens smaller than 1024px */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 10px;
   }
-  
-  .fLists{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
+  .fLists {
+    margin-bottom: 30px;
   }
-  
-  .fList{
-    list-style: none;
-    padding: 0;
+}
+
+/* For screens smaller than 768px (e.g. tablets and smaller laptops) */
+@media (max-width: 768px) {
+  .fLists {
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: flex-start;
   }
-  
-  .fListItem{
-    margin-bottom: 10px;
-    color: #003580;
-    cursor: pointer;
+  .fList {
+    flex: 1 1 45%; /* Each list takes up about 45% of the width */
+    margin-bottom: 20px;
   }
+}
+
+/* For screens smaller than 480px (e.g. mobile devices) */
+@media (max-width: 480px) {
+  .fLists {
+    flex-direction: column; /* Stack lists vertically */
+  }
+  .fList {
+    width: 100%; /* Each list takes full width */
+    margin-bottom: 20px;
+  }
+  .fListItem {
+    margin-bottom: 8px;
+  }
+  .footer {
+    font-size: 10px; /* Reduce font size for smaller screens */
+  }
+  .fText {
+    text-align: center; /* Center the footer text */
+  }
+}

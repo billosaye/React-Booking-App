@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  flex-wrap: wrap; /* Ensure it wraps automatically for smaller screens */
 }
 
 .pListItem {
@@ -31,28 +32,25 @@
 
 /* Media queries for responsiveness */
 
-/* For screens smaller than 768px (e.g. tablets and mobile devices) */
+/* For screens smaller than 768px (e.g., tablets and mobile devices) */
 @media (max-width: 768px) {
-  .pList {
-    flex-wrap: wrap;
-  }
   .pListItem {
-    width: 50%; /* Make each item take up half the width */
+    width: 48%; /* Each item takes up almost half the width with space for margins */
   }
   .pListImg {
-    height: 100px; /* Reduce image height for smaller screens */
+    height: 120px; /* Reduce image height for smaller screens */
   }
 }
 
-/* For screens smaller than 480px (e.g. smaller mobile devices) */
+/* For screens smaller than 480px (e.g., smaller mobile devices) */
 @media (max-width: 480px) {
   .pList {
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column; /* Stack items vertically for small screens */
   }
   .pListItem {
-    width: 100%; /* Make each item take up full width */
+    width: 100%; /* Each item takes up full width */
   }
   .pListImg {
-    height: 80px; /* Reduce image height even further */
+    height: 100px; /* Further reduce image height for small devices */
   }
 }

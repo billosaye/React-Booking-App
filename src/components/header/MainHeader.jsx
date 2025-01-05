@@ -50,10 +50,10 @@ const Header = ({ type }) => {
     });
   };
 
-const handleSearch = () => { 
-  // Navigate to the /hotels route, passing the destination, date, and options as state 
-  navigate("/hotels", { state: { destination, date, options } }); 
-};
+  const handleSearch = () => {
+    // Navigate to the /hotels route, passing the destination, date, and options as state
+    navigate("/hotels", { state: { destination, date, options } });
+  };
 
   const handleInput = (e) => {
     setDestination(e.target.value);
@@ -89,6 +89,7 @@ const handleSearch = () => {
             <span>Airport Cabs</span>
           </div>
         </div>
+
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
@@ -96,7 +97,7 @@ const handleSearch = () => {
             </h1>
             <p className="headerDesc">
               Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free OsayeBookings account
+              more with a free JamnaBookings account
             </p>
             <button className="headerBtn">Sign in / Register</button>
 

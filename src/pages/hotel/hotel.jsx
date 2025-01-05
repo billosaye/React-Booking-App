@@ -4,7 +4,8 @@ import "./hotel.css";
 import MainHeader from "../../components/header/MainHeader";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer/footer";
-import { MailList } from "../../components/mailList/MailList";
+import { MailList } from "../../components/MailList/MailList";
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

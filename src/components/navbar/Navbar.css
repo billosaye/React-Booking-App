@@ -1,27 +1,62 @@
-.navbar{
-    height: 50px;
-    background-color: #000000;
-    display: flex;
-    justify-content: center; /*This property helps to horizontally center the contents*/
+.navbar {
+  height: 50px;
+  background-color: #ff385c;
+  display: flex;
+  justify-content: center;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: 1024px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 500;
+}
+
+.navButton {
+  margin-left: 20px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #000000;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* For tablets and small laptops */
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0 20px; /* Add padding to center content */
   }
   
-  .navContainer{
-    width: 100%;
-    max-width: 1024px;
-    color: white;
-    display: flex;
-    align-items: center;  /*This property helps to vertically center the contents*/
-    justify-content: space-between;
+  .navButton {
+    margin-left: 10px;
+    padding: 3px 8px; /* Adjust padding for smaller screens */
   }
-  
-  .logo{
-    font-weight: 500;
+
+  .logo h1 {
+    font-size: 20px; /* Slightly reduce the logo font size */
   }
-  
-  .navButton{
-    margin-left: 20px;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    color: #003580;
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .navContainer {
+    padding: 0 15px; /* More padding for better appearance on mobile */
   }
+
+  .navButton {
+    margin-left: 5px;
+    padding: 2px 5px; /* Smaller buttons */
+    font-size: 12px; /* Adjust button text size for mobile */
+  }
+
+  .logo h1 {
+    font-size: 18px; /* Further reduce logo font size */
+  }
+}

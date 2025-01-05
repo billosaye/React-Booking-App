@@ -11,7 +11,7 @@ function Home() {
     <div>
       <Navbar />
       <MainHeader />
-      <div className="homeContainer">
+      <div className="homeContainer"> 
         <Featured />
         <h1 className="homeTitle">Browse by Property Type</h1>
         <Propertylist />
